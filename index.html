@@ -1,71 +1,118 @@
 <!doctype html>
 <html>
 <head>
-    <style>
-        @font-face {
-            font-family: 'font-reg';
-            src: url('font/font-reg.ttf');
-        }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<style>
+    @font-face {
+        font-family: 'font-reg';
+        src: url('font/font-reg.ttf');
+    }
 
-        @font-face {
-            font-family: 'font-bold';
-            src: url('font/font-bold.ttf');
-        }
+    @font-face {
+        font-family: 'font-bold';
+        src: url('font/font-bold.ttf');
+    }
 
-        .hide {
-            opacity: 0%;
-        }
+    .hide {
+        opacity: 0%;
+    }
 
-        b, h1 {
-            font-family: 'font-bold';
-            font-weight: normal;
-        }
+    b, h1 {
+        font-family: 'font-bold';
+        font-weight: normal;
+    }
 
-        .large {
-            font-size: 5em;
-        }
+    .large {
+        font-size: 5em;
+    }
 
-        .medium {
-            font-size: 2.5em;
-        }
+    .medium {
+        font-size: 2.5em;
+    }
 
-        .small {
-            font-size: 1.5em;
-        }
+    .small {
+        font-size: 1.5em;
+    }
 
-        html, body {
-            font-family: 'font-reg';
-            background-color: rgb(35, 35, 35);
-            color: lightgray;
-        }
+    html, body {
+        font-family: 'font-reg';
+        background-color: rgb(35, 35, 35);
+        color: lightgray;
+    }
+    .spotify-embed-block {
+        right: 0;
+        bottom: 0;
+        z-index: 100;
+        position: fixed;
+        height: 250px;
+        width: 300px;
+        color: #fff;
+        background-color: rebeccapurple;
+        border-bottom-left-radius: 12px;
+        border-top-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+    }
 
+    @media only screen and (max-width: 479px),only screen and (max-width: 768px) {
         .spotify-embed-block {
-            height: 250px;
-            width: 300px;
-            color: #0006ff;
+            width: 100%;
+            height: 80px
         }
 
-        @media only screen and (max-width: 479px),only screen and (max-width: 768px) {
-            .spotify-embed-block {
+            .spotify-embed-block iframe {
                 width: 100%;
                 height: 80px;
+                border-bottom-left-radius: 12px;
+                border-top-left-radius: 12px;
+                border-bottom-right-radius: 12px;
             }
+    }
 
-                .spotify-embed-block iframe {
-                    width: 80px;
-                    height: 80px;
-                }
-        }
-        .spotify-embed-block .spotify-embed-blurb {
-            padding: 4%
-        }
-    </style>
-    <title>
-    </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    .spotify-embed-block .spotify-embed-blurb {
+        padding: 4%
+    }
 
-    <link rel="icon" src="favicon.png" />
+    .spotify-embed-close {
+        color: #fff;
+        width: 75px;
+        right: 0;
+        bottom: 0;
+        z-index: 100;
+        position: fixed;
+        background-color: rebeccapurple;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+
+    @media only screen and (max-width: 479px),only screen and (max-width: 768px) {
+        .spotify-embed-close {
+            bottom: 0
+        }
+    }
+
+    .spotify-embed-close:hover {
+        cursor: pointer
+    }
+
+    .spotify-embed-close .close-text {
+        padding-bottom: 5px;
+        padding-top: 5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 0;
+        
+    }
+</style>
+<title>
+    Buck Hunterz
+</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" integrity="sha384-xeJqLiuOvjUBq3iGOjvSQSIlwrpqjSHXpduPd6rQpuiM3f5/ijby8pCsnbu5S81n" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<link rel="icon" src="favicon.png" />
 </head>
 <body>
     <h1 class="large">Buck Hunterz</h1>
@@ -80,13 +127,45 @@
                 buck.getElementById("slogan").innerText = text[random];
             </script>
         </div>
-        <div class="spotify-embed-block">
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/51HpUEo1ByHBwQY8FdX9aC?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <div class="spotify-embed-blurb">
-                <p><b id="Description"></b></p>
-            </div>
-        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     </div>
+    <div id="app"></div>
+    <script src="https://unpkg.com/webamp"></script>
+    <script>
+        const options = {
+            initialSkin: {
+                url: 'blob:https://skins.webamp.org/ebb8bc66-bee2-49a9-8e48-e08f511fbef2'
+            }
+        }
+        const app = document.getElementById("app")
+        const webamp = new Webamp(options);
+        webamp.renderWhenReady(app);
+    </script>
+    <div class="spotify-embed-close text-center"><p class="close-text"><i class="bi bi-chevron-bar-up"></i></p></div>
+    <div class="spotify-embed-block text-center" style="display: none;">
+        <script>
+            $('.spotify-embed-close').on('click', function () {
+                if ($('.spotify-embed-block').is(':hidden') && $(window).width() > 768) {
+                    $('.spotify-embed-close').animate({
+                        bottom: 250
+                    }, 400);
+                    var top_text = '<i class="bi bi-chevron-bar-down">'
+                    $('.close-text').empty().append(top_text);
+                } else if ($('.spotify-embed-block').is(':hidden') && $(window).width() <= 768) {
+                    $('.spotify-embed-close').animate({ rotate: '180deg' }, { bottom: 80 }, 400);
+                    var top_text = '<i class="bi bi-chevron-bar-down">'
+                    $('.close-text').empty().append(top_text);
+                }
+                else {
+                    $('.spotify-embed-close').animate({ bottom: 0 }, 400);
+                    var bottom_text = '<i class="bi bi-chevron-bar-up">'
+                    $('.close-text').empty().append(bottom_text).animate({ opacity: '180deg' }, 500);
+                }
+                $('.spotify-embed-block').slideToggle();
+            });
+        </script>
 
+        <iframe src="https://open.spotify.com/embed?uri=spotify:playlist:51HpUEo1ByHBwQY8FdX9aC&theme=white" style=" border-bottom-left-radius: 12px; border-top-left-radius: 12px; border-bottom-right-radius: 12px;" width="300" height="300" frameborder="0" allowtransparency="true"></iframe>
+    </div>
 </body>
 </html>
