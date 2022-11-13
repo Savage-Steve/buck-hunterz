@@ -129,17 +129,26 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     </div>
-    <div id="app"></div>
+    <div id="winamp-container"></div>
     <script src="https://unpkg.com/webamp"></script>
     <script>
-        const options = {
-            initialSkin: {
-                url: 'blob:https://skins.webamp.org/ebb8bc66-bee2-49a9-8e48-e08f511fbef2'
-            }
-        }
-        const app = document.getElementById("app")
-        const webamp = new Webamp(options);
-        webamp.renderWhenReady(app);
+        const webamp = new Webamp();
+                
+
+        webamp.setTracksToPlay([
+            { url: "https://ia803401.us.archive.org/8/items/01-acdc-thunderstruck/The%20Razors%20Edge/12-acdc-if_you_dare.mp3" },
+            { url: "https://ia803401.us.archive.org/8/items/01-acdc-thunderstruck/The%20Razors%20Edge/11-acdc-goodbye_and_good_riddance_to_bad_luck.mp3" },
+            { url: "https://ia903401.us.archive.org/8/items/01-acdc-thunderstruck/The%20Razors%20Edge/09-acdc-shot_of_love.mp3" },
+            { url: "https://ia803401.us.archive.org/8/items/01-acdc-thunderstruck/The%20Razors%20Edge/08-acdc-got_you_by_the_balls.mp3" },
+            { url: "https://ia803401.us.archive.org/8/items/01-acdc-thunderstruck/The%20Razors%20Edge/07-acdc-are_you_ready.mp3" },
+            { url: "https://ia903401.us.archive.org/8/items/01-acdc-thunderstruck/The%20Razors%20Edge/06-acdc-rock_your_heart_out.mp3" },
+            { url: "https://ia803401.us.archive.org/8/items/01-acdc-thunderstruck/The%20Razors%20Edge/05-acdc-mistress_for_christmas.mp3" },
+            { url: "https://ia803401.us.archive.org/8/items/01-acdc-thunderstruck/The%20Razors%20Edge/04-acdc-the_razors_edge.mp3" },
+            { url: "https://ia803401.us.archive.org/8/items/01-acdc-thunderstruck/The%20Razors%20Edge/03-acdc-moneytalks.mp3" },
+            { url: "https://ia903401.us.archive.org/8/items/01-acdc-thunderstruck/The%20Razors%20Edge/02-acdc-fire_your_guns.mp3" },
+            { url: "https://ia903401.us.archive.org/8/items/01-acdc-thunderstruck/The%20Razors%20Edge/01-acdc-thunderstruck.mp3" }
+        ]);
+        webamp.renderWhenReady(document.getElementById('winamp-container'));
     </script>
     <div class="spotify-embed-close text-center"><p class="close-text"><i class="bi bi-chevron-bar-up"></i></p></div>
     <div class="spotify-embed-block text-center" style="display: none;">
